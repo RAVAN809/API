@@ -1,0 +1,514 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Loading Screen */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.loading-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Nuclear Referral Container */
+.nuclear-referral-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.war-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.title-section h2 {
+    font-size: 2rem;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.countdown-timer {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4444;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #ff4444;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+}
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Nuclear Control Panel */
+.nuclear-control-panel {
+    display: grid;
+    gap: 25px;
+}
+
+.weapon-section, .invasion-links, .loot-display, .leaderboard-section {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.weapon-section h3, .invasion-links h3, .loot-display h3, .leaderboard-section h3 {
+    color: #ffd700;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Referral Code Section */
+.referral-code-nuke {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+#nukeCode {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.copy-nuke {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #ffd700, #ff6b00);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    min-width: 150px;
+}
+
+.copy-nuke:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* Invasion Buttons */
+.invasion-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.invasion-btn {
+    padding: 18px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.invasion-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-nuke { 
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+.telegram-nuke { 
+    background: linear-gradient(135deg, #0088cc, #005999);
+    color: white;
+}
+
+.instagram-nuke { 
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+}
+
+.sms-nuke { 
+    background: linear-gradient(135deg, #666666, #444444);
+    color: white;
+}
+
+/* Loot Grid */
+.loot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.loot-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.loot-item:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+}
+
+.loot-name {
+    font-weight: bold;
+    color: #ffd700;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.loot-amount {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.loot-condition {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Leaderboard */
+.assassin-list {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.assassin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.assassin-item:last-child {
+    border-bottom: none;
+}
+
+.assassin-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.assassin-item.highlight {
+    background: rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    font-weight: bold;
+    border-left: 4px solid #ffd700;
+}
+
+.rank {
+    font-weight: bold;
+    color: #ffd700;
+    min-width: 40px;
+}
+
+.assassin-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.assassin-score {
+    color: #ffd700;
+    font-weight: bold;
+    min-width: 100px;
+    text-align: right;
+}
+
+.victim-count {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    min-width: 100px;
+    text-align: right;
+}
+
+/* Emergency Button */
+.emergency-extract {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.emergency-btn {
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #ff4444, #cc0000);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+.emergency-btn:hover {
+    background: linear-gradient(135deg, #cc0000, #990000);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 68, 68, 0.4);
+}
+
+/* Viral Notifications */
+.viral-nuke-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff4444, #ff8000);
+    color: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+    z-index: 10000;
+    animation: nukeFloat 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 350px;
+    border-left: 5px solid #ffd700;
+}
+
+.nuke-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes nukeFloat {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+/* Self Destruct */
+.self-destruct {
+    text-align: center;
+    padding: 60px 30px;
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 3px solid #ff4444;
+    margin: 50px auto;
+    max-width: 500px;
+}
+
+.self-destruct h2 {
+    color: #ff4444;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.self-destruct p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.self-destruct button {
+    padding: 15px 30px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.self-destruct button:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nuclear-referral-container {
+        padding: 15px;
+    }
+    
+    .title-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .title-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-timer {
+        font-size: 1.2rem;
+    }
+    
+    .invasion-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .referral-code-nuke {
+        flex-direction: column;
+    }
+    
+    #nukeCode {
+        min-width: auto;
+    }
+    
+    .stats-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .loot-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .assassin-item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .assassin-score, .victim-count {
+        min-width: auto;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .loot-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .war-header, .weapon-section, .invasion-links, .loot-display, .leaderboard-section {
+        padding: 20px 15px;
+    }
+}
